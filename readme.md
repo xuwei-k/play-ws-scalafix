@@ -8,7 +8,7 @@
 `project/scalafix.sbt`
 
 ```scala
-addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.9.14")
+addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.9.15")
 ```
 
 sbt shell
