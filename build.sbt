@@ -9,6 +9,7 @@ lazy val commonSettings = Def.settings(
     licenses := Seq("MIT License" -> url("https://opensource.org/licenses/mit-license")),
     description := "scalafix rule for replace old-play-ws to play-ws-standalone",
     scalaVersion := V.scala212,
+    crossScalaVersions := Seq(V.scala212, V.scala213),
     addCompilerPlugin(scalafixSemanticdb),
     releaseCrossBuild := true,
     releaseProcess := Seq[ReleaseStep](
