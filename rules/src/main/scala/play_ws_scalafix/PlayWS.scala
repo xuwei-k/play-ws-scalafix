@@ -36,7 +36,7 @@ class PlayWS extends SemanticRule("PlayWS") {
       } yield {
         doc.tree.collect {
           case t: Term.Select if t.symbol.displayName == oldMethod && t.symbol.owner.value == clazz =>
-            Patch.replaceTree(t, t.qual + "." + newMethod) + importPatch
+            Patch.replaceTree(t, t.qual.toString + "." + newMethod) + importPatch
         }
       }
     }.flatten.foldLeft(Patch.empty)(_ + _)
