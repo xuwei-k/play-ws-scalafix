@@ -15,6 +15,5 @@ sbt shell
 
 ```
 > scalafixEnable
-> scalafix dependency:PlayWS@com.github.xuwei-k:play-ws-scalafix:0.1.0
-> test:scalafix dependency:PlayWS@com.github.xuwei-k:play-ws-scalafix:0.1.0
+> scalafixAll dependency:PlayWS@com.github.xuwei-k:play-ws-scalafix:0.1.0
 ```
