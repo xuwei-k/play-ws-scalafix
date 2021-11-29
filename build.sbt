@@ -95,9 +95,9 @@ lazy val input = project.settings(
 
 lazy val output = project.settings(
   commonSettings,
-  libraryDependencies += "com.typesafe.play" %% "play-ahc-ws-standalone" % "2.1.3",
-  libraryDependencies += "com.typesafe.play" %% "play-ws-standalone-json" % "2.1.3",
-  libraryDependencies += "com.typesafe.play" %% "play-ws-standalone-xml" % "2.1.3",
+  libraryDependencies += "com.typesafe.play" %% "play-ahc-ws-standalone" % "2.1.4",
+  libraryDependencies += "com.typesafe.play" %% "play-ws-standalone-json" % "2.1.4",
+  libraryDependencies += "com.typesafe.play" %% "play-ws-standalone-xml" % "2.1.4",
   publish / skip := true
 )
 
