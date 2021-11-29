@@ -40,6 +40,7 @@ lazy val commonSettings = Def.settings(
       </scm>
     ),
     publishTo := sonatypePublishToBundle.value,
+    libraryDependencySchemes += "org.scala-lang.modules" %% "scala-java8-compat" % "always",
     (Compile / doc / scalacOptions) ++= {
       val hash = sys.process.Process("git rev-parse HEAD").lineStream_!.head
       Seq(
@@ -89,15 +90,14 @@ lazy val rules = project.settings(
 lazy val input = project.settings(
   commonSettings,
   libraryDependencies += "com.typesafe.play" %% "play-ahc-ws" % "2.8.9",
-  libraryDependencySchemes += "org.scala-lang.modules" %% "scala-java8-compat" % "always",
   publish / skip := true
 )
 
 lazy val output = project.settings(
   commonSettings,
-  libraryDependencies += "com.typesafe.play" %% "play-ahc-ws-standalone" % "2.1.3",
-  libraryDependencies += "com.typesafe.play" %% "play-ws-standalone-json" % "2.1.3",
-  libraryDependencies += "com.typesafe.play" %% "play-ws-standalone-xml" % "2.1.3",
+  libraryDependencies += "com.typesafe.play" %% "play-ahc-ws-standalone" % "2.1.4",
+  libraryDependencies += "com.typesafe.play" %% "play-ws-standalone-json" % "2.1.4",
+  libraryDependencies += "com.typesafe.play" %% "play-ws-standalone-xml" % "2.1.4",
   publish / skip := true
 )
 
