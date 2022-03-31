@@ -89,7 +89,7 @@ lazy val rules = project.settings(
 
 lazy val input = project.settings(
   commonSettings,
-  libraryDependencies += "com.typesafe.play" %% "play-ahc-ws" % "2.8.14",
+  libraryDependencies += "com.typesafe.play" %% "play-ahc-ws" % "2.8.15",
   publish / skip := true
 )
 
