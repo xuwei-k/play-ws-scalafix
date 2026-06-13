@@ -1,9 +1,9 @@
 package fix
 
-import play.api.libs.ws.{ StandaloneWSClient, StandaloneWSRequest, StandaloneWSResponse }
+import play.api.libs.ws.{StandaloneWSClient, StandaloneWSRequest, StandaloneWSResponse}
 import play.api.libs.ws.JsonBodyReadables._
 import play.api.libs.ws.XMLBodyReadables._
-import play.api.libs.ws.ahc.{ StandaloneAhcWSClient, StandaloneAhcWSRequest, StandaloneAhcWSResponse }
+import play.api.libs.ws.ahc.{StandaloneAhcWSClient, StandaloneAhcWSRequest, StandaloneAhcWSResponse}
 
 trait PlayWSTest {
   def a1: StandaloneWSClient
