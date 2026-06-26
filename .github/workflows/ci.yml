@@ -2,11 +2,12 @@ name: CI
 on:
   pull_request:
   push:
-  schedule:
-  - cron: '0 4 * * 2'
+    branches:
+      - master
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     strategy:
       fail-fast: false
     steps:
@@ -17,4 +18,9 @@ jobs:
         distribution: temurin
     - uses: coursier/cache-action@v8
     - uses: sbt/setup-sbt@v1
-    - run: sbt "+scalafmtCheckAll" scalafmtSbtCheck "+test"
+    - run: sbt
+           -v
+           --server
+           "+scalafmtCheckAll"
+           scalafmtSbtCheck
+           "+test"
