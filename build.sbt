@@ -21,7 +21,7 @@ lazy val commonSettings = Def.settings(
       commitReleaseVersion,
       tagRelease,
       releaseStepCommandAndRemaining("+publishSigned"),
-      releaseStepCommandAndRemaining("sonatypeBundleRelease"),
+      releaseStepCommandAndRemaining("sonaRelease"),
       setNextVersion,
       commitNextVersion,
       pushChanges
@@ -39,7 +39,7 @@ lazy val commonSettings = Def.settings(
         <connection>scm:git:git@github.com:xuwei-k/play-ws-scalafix.git</connection>
       </scm>
     ),
-    publishTo := sonatypePublishToBundle.value,
+    publishTo := (if (isSnapshot.value) None else localStaging.value),
     libraryDependencySchemes += "org.scala-lang.modules" %% "scala-java8-compat" % "always",
     (Compile / doc / scalacOptions) ++= {
       val hash = sys.process.Process("git rev-parse HEAD").lineStream_!.head
