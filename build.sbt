@@ -42,7 +42,7 @@ lazy val commonSettings = Def.settings(
     publishTo := (if (isSnapshot.value) None else localStaging.value),
     libraryDependencySchemes += "org.scala-lang.modules" %% "scala-java8-compat" % "always",
     (Compile / doc / scalacOptions) ++= {
-      val hash = sys.process.Process("git rev-parse HEAD").lineStream_!.head
+      val hash = sys.process.Process("git rev-parse HEAD").lazyLines_!.head
       Seq(
         "-sourcepath",
         (LocalRootProject / baseDirectory).value.getAbsolutePath,
@@ -105,8 +105,9 @@ lazy val tests = project
   .settings(
     commonSettings,
     publish / skip := true,
-    (Compile / compile) :=
-      (Compile / compile).dependsOn(input / Compile / compile).value,
+    (Compile / compile) := Def.uncached(
+      (Compile / compile).dependsOn(input / Compile / compile).value
+    ),
     scalafixTestkitOutputSourceDirectories :=
       (output / Compile / sourceDirectories).value,
     scalafixTestkitInputSourceDirectories :=
