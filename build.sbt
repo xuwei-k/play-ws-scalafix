@@ -105,7 +105,6 @@ lazy val tests = project
   .settings(
     commonSettings,
     publish / skip := true,
-    libraryDependencies += "ch.epfl.scala" % "scalafix-testkit" % V.scalafixVersion % Test cross CrossVersion.full,
     (Compile / compile) :=
       (Compile / compile).dependsOn(input / Compile / compile).value,
     scalafixTestkitOutputSourceDirectories :=
